@@ -33,7 +33,7 @@ function wan_led()
 
   for line in devfd:lines() do
     local bytes_in, pkt_in, bytes_out, pkt_out
-    local pat = wan_interface..":%s*(%d+)%s+(%d+)%s+%d+%s+%d+%s+%d+%s+%d+%s+%d+%s+%d+%s+(%d+)%s+(%d+)%s+"
+    local pat = "^%s+"..wan_interface..":%s*(%d+)%s+(%d+)%s+%d+%s+%d+%s+%d+%s+%d+%s+%d+%s+%d+%s+(%d+)%s+(%d+)%s+"
     _, _, bytes_in, pkt_in, bytes_out, pkt_out = string.find(line, pat)
 
     if bytes_in ~= nil then
